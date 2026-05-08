@@ -1,1 +1,420 @@
-/* место для вашего кода */
+:root {
+  --text-primary: #111111;
+  --text-muted: #4a4a4a;
+  --surface: #ffffff;
+  --black: #000000;
+  --white: #ffffff;
+  --layout-max-width: 1200px;
+  --layout-gutter: clamp(20px, 4vw, 60px);
+  --section-gap: clamp(60px, 12vw, 140px);
+  --cover-bg-image: url("../images/lotus-flower.png");
+  --lot-film-image: url("../images/1.png");
+  --lot-book-image: url("../images/2.png");
+  --lot-picture-image: url("../images/3.png");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  color: var(--text-primary);
+  background: var(--surface);
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: center;
+  padding: 30px var(--layout-gutter);
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  gap: 24px;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header__nav-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.header__nav-item:not(.header__nav-item--no-bullet)::before {
+  content: "•";
+  margin-right: 8px;
+}
+
+.header__nav-item--no-bullet::before {
+  content: "";
+  margin: 0;
+}
+
+.header__nav-link {
+  text-transform: lowercase;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.header__nav-link--active {
+  border-bottom-color: var(--black);
+}
+
+.header__logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 148px;
+  height: 105px;
+}
+
+.header__logo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.address {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.header__address {
+  justify-self: end;
+  text-align: right;
+  max-width: 260px;
+}
+
+.cover {
+  position: relative;
+  background-image: var(--cover-bg-image);
+  background-size: cover;
+  background-position: center;
+  padding: clamp(120px, 18vw, 180px) var(--layout-gutter) clamp(50px, 8vw, 90px);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.cover__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.cover__title {
+  position: relative;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(48px, 9vw, 110px);
+  letter-spacing: 0.22em;
+  line-height: 0.9;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cover__line {
+  display: block;
+}
+
+.cover__line--center {
+  text-align: center;
+}
+
+.cover__line--right {
+  text-align: right;
+}
+
+.cover__cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: clamp(40px, 8vw, 90px);
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cover__tagline {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 16px;
+}
+
+.cover__button {
+  border: 1px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 12px 36px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.cover__button:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.lots {
+  padding: var(--section-gap) var(--layout-gutter);
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+}
+
+.lots__title {
+  margin: 0 0 40px;
+  font-size: clamp(28px, 4vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lots__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lots__item {
+  min-height: 100%;
+}
+
+.lots__card-link {
+  display: block;
+  height: 100%;
+}
+
+.lot-card {
+  position: relative;
+  min-height: 520px;
+  height: 100%;
+  color: var(--white);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.lot-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.lot-card__title,
+.lot-card__text {
+  position: relative;
+  margin: 0;
+  z-index: 1;
+}
+
+.lot-card__title {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lot-card__text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lot-card--film {
+  background-image: var(--lot-film-image);
+}
+
+.lot-card--book {
+  background-image: var(--lot-book-image);
+}
+
+.lot-card--picture {
+  background-image: var(--lot-picture-image);
+}
+
+.lots__more-link {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 16px;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: 40px;
+  padding: var(--section-gap) var(--layout-gutter);
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+}
+
+.about__logo-wrap {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.about__logo-img {
+  width: 240px;
+  height: 240px;
+  display: block;
+}
+
+.about__heading {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 4vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.about__body {
+  display: grid;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+.about__body p {
+  margin: 0;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  padding: var(--section-gap) var(--layout-gutter);
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+}
+
+.footer__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+}
+
+.footer__nav-link {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.footer__nav-link--active {
+  border-bottom-color: var(--black);
+}
+
+.footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.footer__social-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .header__address {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .cover__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lots__list {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__nav-list {
+    text-align: left;
+  }
+
+  .footer__social {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .cover__title {
+    letter-spacing: 0.12em;
+  }
+
+  .lot-card {
+    padding: 28px;
+    min-height: 420px;
+  }
+}
+
